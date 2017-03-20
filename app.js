@@ -7,6 +7,7 @@ const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 const env          = require('dotenv');
+const cors         = require('cors');
 
 // env.config as const env name, which we can call whatever we want.
 env.config();
