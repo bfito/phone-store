@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+// This is a bit different than the excercise
 const phoneSchema = new Schema({
   brand: {
     type: String,
