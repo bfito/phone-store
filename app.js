@@ -33,12 +33,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 app.use(cors());
 
-const index = require('./routes/index');
-app.use('/', index);
+// We commented out to wire "function after const phonesApi" we do this to have a home page, if not we wouldn't comment out or delete
+// const index = require('./routes/index');
+// app.use('/', index);
 
 const phonesApi = require('./routes/phones-api');
 app.use('/api', phonesApi);
 
+// This is for "routing" pages to home. We are not going to have 404 errors.
+// This is a middleware
+// Any web url not defined in express will now go to angular sites.
+app.use(function (req, res) {
+  res.sendfile(__dirname + '/public/index.html');
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

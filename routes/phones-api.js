@@ -5,7 +5,7 @@ const Phone = require('../models/phone-model');
 
 const router = express.Router();
 
-router.get('/phones', (req, res, ext) => {
+router.get('/phones', (req, res, next) => {
   Phone.find((err, phonesList) => {
     if (err) {
       res.json(err);
